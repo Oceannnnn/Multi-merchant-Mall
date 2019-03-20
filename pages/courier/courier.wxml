@@ -1,0 +1,51 @@
+<!--pages/courier/courier.wxml-->
+<view class='p_20 bor_bom'>
+  <view class='flex_i f_34 mb_20'>
+    <i class="iconfont icon-iconfontxiaogantanhao mr_20 c_5e8"></i>
+    请退货给商家
+  </view>
+  <view class='flex f_30'>
+    退货地址：
+    <view class='c_999 right'>
+      {{info.refund_address}},{{info.refund_name}},{{info.refund_mobile}}
+    </view>
+  </view>
+</view>
+<view wx:if="{{hidden==0}}">
+  <view class='p_20 f_30'>
+    <view class='flex_i item'>
+      <view class='c_999 mr_20'>
+        物流公司
+      </view>
+      <picker bindchange="bindshippingChange" value="{{index}}" range-key="{{'shipping_name'}}" range="{{info.shipping}}">
+        <view class="picker">
+          <text wx:if="{{index==-1}}">请选择物流公司</text> {{info.shipping[index].shipping_name}}
+        </view>
+      </picker>
+    </view>
+    <view class='flex_i item mt_20'>
+      <view class='c_999 mr_20'>
+        物流单号
+      </view>
+      <input class='input' placeholder='请填写物流单号' type='number' bindinput='bindinput'></input>
+    </view>
+  </view>
+  <button class='s_foot' bindtap='comfirm'>提交</button>
+</view>
+<view wx:else class='f_30'>
+  <view class='p_20'>
+    <view class='flex_i'>
+      <view class='c_999 mr_20'>
+        物流公司：
+      </view>
+      {{details.shipping_name}}
+    </view>
+    <view class='flex_i mt_20'>
+      <view class='c_999 mr_20'>
+        物流单号：
+      </view>
+      {{details.shipping_number}}
+    </view>
+  </view>
+  <button class='s_foot' bindtap='bindtap'>修改退货信息</button>
+</view>

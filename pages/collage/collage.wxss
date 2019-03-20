@@ -1,0 +1,34 @@
+/* pages/collage/collage.wxss */
+@import "../../font/iconfont.wxss";
+@import "../allorder/allorder.wxss";
+@import '../listPage/listPage.wxss';
+.nav-scroll{
+  box-shadow: 1px 1px 6px #eee;
+}
+.scroll-view_H{
+  color: #333;
+}
+.nav-name{
+  width: auto;
+  padding: 30rpx;
+}
+.collage_img{
+  width: 240rpx;
+  height: 240rpx;
+}
+.collage_right{
+  width: 440rpx;
+}
+.collage_footer{
+  border: 1px solid #ccc;
+}
+.footer_items{
+  padding: 10rpx 20rpx;
+}
+.iconfont{
+ font-size: 30rpx;
+}
+.footer_items:last-child{
+  background: #E82D2D;
+  color: #fff;
+}

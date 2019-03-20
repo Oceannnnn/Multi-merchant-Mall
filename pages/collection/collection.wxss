@@ -1,0 +1,38 @@
+/* pages/collection/collection.wxss */
+@import "../allorder/allorder.wxss";
+.items_right{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.yuan{
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  border: 1px solid #EA5D34;
+}
+.yuan_b{
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  border: 1px solid #999;
+}
+.storeCollect{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+.store{
+  width: 100%;
+}
+.storeTxet{
+  width: 70%;
+}
+.storeHeader{
+  width: 80%;
+}
+.cancleStore{
+  padding: 5px 20rpx;
+  border-radius: 10rpx;
+  background: #EA5D34;
+}

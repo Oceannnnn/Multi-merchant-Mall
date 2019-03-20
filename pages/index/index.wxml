@@ -1,0 +1,168 @@
+<!--index.wxml-->
+<view class='search {{floorstatus==true?"on":""}}'>
+  <navigator class='searchBox flex_i f_28' url='../search/search'>
+    <i class="iconfont icon-sousuo mr_20 ml_20"></i>
+    搜索你想要的宝贝
+  </navigator>
+</view>
+<view class='main_header'>
+  <swiper indicator-dots interval="3000" duration="1000" autoplay='true' circular>
+    <block wx:for="{{imgUrls}}" wx:key="{{itemName}}" wx:for-item="itemName">
+      <swiper-item data-id="{{itemName.goods_id}}" data-type="0" bindtap='details'>
+        <text class='text'>{{itemName.title}}</text>
+        <image src="{{itemName.pic}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<view class='flex_i quick_body'>
+  <navigator class='quick_item flex_af f_28 pr' url='../collage/collage?type=1&name=9.9包邮'>
+    <form report-submit='true' class='formBtn' bindsubmit='bindsubmit'>
+      <button class='formBtn' form-type='submit'></button>
+    </form>
+    <view class='mb_10 icon_item item0 flex_faj'>
+      <i class="iconfont icon-tubiao_baoyou"></i>
+    </view>
+    <text>9.9包邮</text>
+  </navigator>
+  <navigator class='quick_item flex_af f_28 pr' url='../collage/collage?type=2&name=拼团'>
+    <form report-submit='true' class='formBtn' bindsubmit='bindsubmit'>
+      <button class='formBtn' form-type='submit'></button>
+    </form>
+    <view class='mb_10 icon_item item1 flex_faj'>
+      <i class="iconfont icon-pintuangou"></i>
+    </view>
+    <text>拼团</text>
+  </navigator>
+  <view class='quick_item flex_af f_28 pr'>
+    <form report-submit='true' class='formBtn' data-ptime='{{ptime}}' bindsubmit='toSecKill'>
+      <button class='formBtn' form-type='submit'></button>
+    </form>
+    <view class='mb_10 icon_item item2 flex_faj'>
+      <i class="iconfont icon-miaosha"></i>
+    </view>
+    <text>限时抢购</text>
+  </view>
+  <view class='quick_item flex_af f_28 pr'>
+    <form report-submit='true' class='formBtn' data-type='1' data-name='折扣' bindsubmit='listPage'>
+      <button class='formBtn' form-type='submit'></button>
+    </form>
+    <view class='mb_10 icon_item item3 flex_faj'>
+      <i class="iconfont icon-zhekou"></i>
+    </view>
+    <text>折扣</text>
+  </view>
+  <navigator class='quick_item flex_af f_28 pr' url='../recharge/recharge'>
+    <view class='mb_10 icon_item item4 flex_faj'>
+      <i class="iconfont icon-tuikuan"></i>
+    </view>
+    <text>充值中心</text>
+  </navigator>
+  <view class='quick_item flex_af f_28 pr' wx:for="{{cate}}" wx:key="cate" bindtap='listPage' data-id='{{item.id}}' data-type='2' data-name='{{item.name}}'>
+    <view class='mb_10 icon_item flex_faj'>
+      <image src='{{item.image}}'></image>
+    </view>
+    <text>{{item.name}}</text>
+  </view>
+</view>
+<view class='flex_i text_body bor_b'>
+  <i class="iconfont icon-gonggao mr_20 ml_20"></i>
+  <swiper interval="3000" duration="1000" autoplay='true' circular vertical>
+    <block wx:for="{{textList}}" wx:key="{{itemName}}" wx:for-item="itemName">
+      <swiper-item>
+        <text class='sheng f_32'>{{itemName.content}}</text>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<view class='bor_b p_20' wx:if="{{collageList!=''}}">
+  <view class='flex_cb mb_10'>
+    <view class='f_32'>拼团购</view>
+    <navigator class='flex_i f_28 pr c_999' url='../collage/collage'>
+      更多
+      <i class="iconfont icon-xiangyoujiantou c_999"></i>
+    </navigator>
+  </view>
+  <scroll-view class="collage_scroll" scroll-x style="width: 100%">
+    <view class="collageList" wx:for="{{collageList}}" wx:key="collageList" data-id='{{item.goods_id}}' bindtap='details'>
+      <image class='collage_pic' src='{{item.original_img}}'></image>
+      <view class='num_collage tc'>{{item.num}}人拼</view>
+      <view class='price f_28 mt_10'>￥{{item.price}}</view>
+      <view class='text_l c_999 f_24 mt_10'>￥{{item.shop_price}}</view>
+    </view>
+  </scroll-view>
+</view>
+<view class='special_column'>
+  <view class='flex_cb p_20 f_32'>
+    <view class='flex_i'>
+      <text class=' mr_20'>限时抢购</text>
+      <text wx:if="{{xianList!=''}}" class='c_ea5 f_28'>{{time_state}}点场 {{times}}</text>
+      <text wx:else class='c_999 f_28'>暂无抢购活动</text>
+    </view>
+    <view class='flex_i f_28 pr c_999'>
+      <form report-submit='true' class='formBtn' bindsubmit='toSecKill'>
+        <button class='formBtn' form-type='submit'></button>
+      </form>
+      更多
+      <i class="iconfont icon-xiangyoujiantou"></i>
+    </view>
+  </view>
+  <view class='flex_i xian_body p_20' wx:if="{{xianList!=''}}">
+    <view class="xianList flex_af" wx:for="{{xianList}}" wx:key="xianList" data-id='{{item.goods_id}}' bindtap='details'>
+      <image class='collage_pic' src='{{item.original_img}}'></image>
+      <view class='price f_30 mt_10'>￥{{item.price}}</view>
+      <view class='text_l c_999 mt_10 f_24'>￥{{item.shop_price}}</view>
+    </view>
+  </view>
+</view>
+<view class='pr advert bor_b' wx:for="{{adList}}" wx:key="{{imgUrls}}">
+  <form report-submit='true' class='formBtn' data-id='{{item.goods_id}}' bindsubmit='details'>
+    <button class='formBtn' form-type='submit'></button>
+  </form>
+  <view class='guang'>{{item.title}}</view>
+  <image src='{{item.pic}}'></image>
+</view>
+<!-- <view class='f_32 p_20 bor_b' wx:if="{{storeList!=''}}">
+  店铺推荐
+</view>
+<view class="items-body flex_f">
+  <view wx:for="{{storeList}}" wx:key="{{itemName}}" wx:for-item="itemName" class='item_list p_20 bor_b pr storeList' data-id='{{itemName.store_id}}' bindtap='toStore'>
+    <view class='sheng f_28 contentText mb_10'>{{itemName.store_name}}</view>
+    <view class="item-img">
+      <image class="lazy" src="{{itemName.recommend_image}}" />
+    </view>
+  </view>
+</view> -->
+<view class='f_32 p_20 bor_b'>
+  猜你喜欢
+</view>
+<view class="items-body flex_f">
+  <view wx:for="{{itemsList}}" wx:key="{{itemName}}" wx:for-item="itemName" class='item_list p_20 bor_b pr'>
+    <form report-submit='true' class='formBtn' data-id='{{itemName.goods_id}}' data-type='0' bindsubmit='details'>
+      <button class='formBtn' form-type='submit'></button>
+    </form>
+    <view class="item-img mb_20">
+      <image class="lazy" src="{{itemName.pic}}" />
+    </view>
+    <view class='sheng2 f_28 mb_20 contentText'>{{itemName.goods_name}}</view>
+    <view class='flex_i f_32'>
+      <view class="price">{{itemName.price}}</view>
+      <view class="text_l c_999 ml_20 f_28" wx:if="{{itemName.is_discount==1}}">{{itemName.discount_before}}</view>
+    </view>
+  </view>
+</view>
+<view class='gouwuche bg_f flex_faj'>
+  <form report-submit='true' class='formBtn' bindsubmit='chatList'>
+    <button class='formBtn' form-type='submit'></button>
+  </form>
+  <i class="iconfont icon-xiaoxi">
+    <view class='myNews f_28 c_f flex_faj ml_20' wx:if="{{no_read_num>0}}">
+      <text wx:if="{{no_read_num>99}}">99</text>
+      <text wx:else>{{no_read_num}}</text>
+    </view>
+  </i>
+</view>
+<view class='flex_faj bg_f gouwuche index_icon' bindtap='goTop' hidden='{{!floorstatus}}'>
+  <i class="iconfont icon-huidaodingbu"></i>
+</view>
+<navigator class='flex_af f_28 p_40' target="miniProgram" open-type="navigate" appId="wx1773ca9a5221af5b">技术支持 @ 风擎网络科技</navigator>

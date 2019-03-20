@@ -1,0 +1,89 @@
+/* pages/my/my.wxss */
+@import "../../font/iconfont.wxss";
+@import "../index/index.wxss";
+.top-info{
+  color: #fff;
+}
+.avatar {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.c_dd9{
+  color: #DD9E58
+}
+.nav-warp {
+  background: #fff;
+}
+.nav-warp .nav-item {
+  padding: 40rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.jishu{
+  width: 100%;
+  text-align: center;
+  font-size: 34rpx;
+  margin-top: 20rpx;
+  padding: 40rpx 0;
+}
+.jishu text{
+  border-bottom: 1px solid #333;
+  padding: 10rpx 0;
+}
+.orderItem{
+  width: 25%;
+}
+.orderItem i.iconfont{
+  font-size: 50rpx;
+}
+.getUserInfo{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+.avatar_info{
+  width:160rpx;
+  height:160rpx;
+  border-radius:50%;
+}
+.integral_item{
+  width: 50%;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 20rpx 0;
+}
+.c_fdb{
+  color: #FDBD3F;
+}
+.c_f68{
+  color: #F68136;
+}
+.c_ff3{
+  color: #FF3248;
+}
+.c_71b{
+  color: #71B1E9;
+}
+.myHeader{
+  background: #E46765;
+  border-radius: 20rpx;
+}
+.my_footer{
+ flex-wrap: wrap;
+}
+.my_footer .nav-item{
+ width: 25%;
+ padding: 30rpx 0;
+}
+.my_footer .nav-item .iconfont{
+  font-size: 50rpx;
+}
+.myNews{
+  top:18rpx;
+  right: 26rpx;
+}

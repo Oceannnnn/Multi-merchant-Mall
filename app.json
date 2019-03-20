@@ -1,0 +1,82 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/refund/refund",
+    "pages/chat/chat",
+    "pages/courier/courier",
+    "pages/detailsRefund/detailsRefund",
+    "pages/my/my",
+    "pages/allorder/allorder",
+    "pages/secKill/secKill",
+    "pages/toLogin/toLogin",
+    "pages/distributionTeam/distributionTeam",
+    "pages/distributionMoney/distributionMoney",
+    "pages/distribution/distribution",
+    "pages/goodsDetails/goodsDetails",
+    "pages/search/search",
+    "pages/store/store",
+    "pages/chatList/chatList",
+    "pages/storeClassify/storeClassify",
+    "pages/smallRoutine/smallRoutine",
+    "pages/serviceType/serviceType",
+    "pages/logistics/logistics",
+    "pages/confirmationOrder/confirmationOrder",
+    "pages/comment/comment",
+    "pages/consumer/consumer",
+    "pages/balance/balance",
+    "pages/recharge/recharge",
+    "pages/distributionQRCode/distributionQRCode",
+    "pages/distributionCommission/distributionCommission",
+    "pages/distributionExpressive/distributionExpressive",
+    "pages/classify/classify",
+    "pages/listPage/listPage",
+    "pages/record/record",
+    "pages/coupons/coupons",
+    "pages/useCoupon/useCoupon",
+    "pages/orderDetails/orderDetails",
+    "pages/collage/collage",
+    "pages/cart/cart",
+    "pages/myadd/myadd",
+    "pages/collection/collection",
+    "pages/payResults/payResults",
+    "pages/distributionIllustrate/distributionIllustrate",
+    "pages/about/about"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "商城",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#989898",
+    "backgroundColor": "#fff",
+    "selectedColor": "#333333",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/index.png",
+        "selectedIconPath": "images/index_active.png"
+      },
+      {
+        "pagePath": "pages/classify/classify",
+        "text": "分类",
+        "iconPath": "images/classify.png",
+        "selectedIconPath": "images/classify_active.png"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "购物车",
+        "iconPath": "images/cart.png",
+        "selectedIconPath": "images/cart_active.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "个人中心",
+        "iconPath": "images/my.png",
+        "selectedIconPath": "images/my_active.png"
+      }
+    ]
+  }
+}

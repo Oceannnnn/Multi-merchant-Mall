@@ -1,0 +1,68 @@
+/* pages/coupons/coupons.wxss */
+@import "../allorder/allorder.wxss";
+page{
+  background: #F7F7F7;
+}
+.nav-name{
+  width: 33.33%;
+}
+.couponBody{
+  margin-top: 120rpx;
+}
+.quan_item{
+  position: relative;
+  padding: 60rpx 40rpx 30rpx;
+  border: 1px solid #cab8ad;
+}
+.quan_item image{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30rpx;
+}
+.quan-yen {
+  font-size: 40rpx;
+  color: #FF505E;
+}
+.quan-price {
+  font-size: 70rpx;
+  font-weight: 700;
+  line-height: 50px;
+  color: #FF505E;
+}
+.quan-limit {
+  font-size: 32rpx;
+  color: #555;
+  margin-bottom: 16rpx;
+}
+.quan-time {
+  font-size: 28rpx;
+  color: #888;
+}
+.quan_right{
+  margin-left: 40rpx;
+  width:65%;
+}
+.quan_item1 .quan-yen ,.quan_item2 .quan-yen,.quan_item1 .quan-price,.quan_item2 .quan-price{
+  color: #e4e4e4;
+}
+.storeCollect{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+.store{
+  width: 100%;
+}
+.storeTxet{
+  width: 70%;
+}
+.storeHeader{
+  width: 75%;
+}
+.cancleStore{
+  padding: 5px 20rpx;
+  border-radius: 10rpx;
+  background: #EA5D34;
+}

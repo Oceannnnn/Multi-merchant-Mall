@@ -1,0 +1,62 @@
+/* pages/consumer/consumer.wxss */
+page{
+  background: #F6F4F5;
+}
+.page{
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.coupon_items{
+  width: 100%;
+  position: relative;
+  height: 200rpx;
+  border-left: 3px #EF7D6B solid;
+  border-radius: 10rpx;
+}
+.coupon_items.on .coupon_title{
+  color: #ff8194;
+}
+.coupon_img{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.pr{
+  position: relative;
+  z-index: 2;
+}
+.coupon_title{
+  font-size: 40rpx;
+  color: #F16D5B;
+}
+.coupon_money{
+  font-size: 60rpx;
+  font-weight: 500;
+}
+.conpon_biao{
+  padding: 10rpx 20rpx;
+  font-size: 30rpx;
+  color: #F16D5B;
+  background: #fff;
+  margin: 20rpx;
+}
+.button_coupon{
+  padding: 20rpx 40rpx;
+  background: #F16D5B;
+  color: #fff;
+  font-size: 30rpx;
+}
+.button_coupon.on{
+  background: #B7B7B7;
+}
+.ling{
+  position: absolute;
+  width: 140rpx;
+  height: 140rpx;
+  bottom: -15rpx;
+  right: -20rpx;
+  z-index: 1;
+}

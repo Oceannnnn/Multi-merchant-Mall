@@ -1,0 +1,8 @@
+/* pages/serviceType/serviceType.wxss */
+@import "../../font/iconfont.wxss";
+page{
+  background: #F2f2f2;
+}
+.c_e30{
+  color: #E30000;
+}

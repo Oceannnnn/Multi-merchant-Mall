@@ -1,0 +1,29 @@
+<!--pages/detailsRefund/detailsRefund.wxml-->
+<view class='p_40 f_34 b_e83 c_f'>
+  <text>{{info.after_sale_text}}</text>
+</view>
+<view class='f_32 bor_b'>
+  <view class='bor_b p_20'>退款信息</view>
+  <view class='flex_i bor_b p_20'>
+    <image src='{{info.pic}}' class='goods_img mr_20'></image>
+    <view class='f_30 flex_fs goods_right'>
+      <view>
+        <view class='sheng'>{{info.name}}</view>
+        <view class='mt_10 f_28 c_999 sheng'>{{info.key_name}}</view>
+      </view>
+    </view>
+  </view>
+  <view class='p_20'>
+    <view class='mb_20 c_999 f_28'>类型：{{info.reason_type}}</view>
+    <view class='mb_20 c_999 f_28'>退款原因：{{info.reason}}</view>
+    <view class='mb_20 c_999 f_28'>退款金额：{{info.subtotal}}</view>
+    <view class='mb_20 c_999 f_28'>申请时间：{{info.add_time}}</view>
+    <view class='c_999 f_28'>退款编号：{{info.order_na}}</view>
+  </view>
+</view>
+<view class='footer bg_f flex_i'>
+  <view class='f_30 comfirm del' bindtap='revoke' data-id='{{info.id}}' wx:if="{{info.after_sale_status==1||info.after_sale_status==2}}">撤销申请</view>
+  <view class='f_30 comfirm del' bindtap='courier' data-id='{{info.id}}' wx:if="{{info.after_sale_status==2}}">填写退货物流</view>
+  <navigator class='f_30 comfirm del' url='../about/about' wx:if="{{info.after_sale_status==1||info.after_sale_status==5}}">客服介入</navigator>
+  <navigator class='f_30 comfirm del' open-type='switchTab' url='../index/index' wx:if="{{info.after_sale_status!=1&&info.after_sale_status!=3}}">返回首页</navigator>
+</view>

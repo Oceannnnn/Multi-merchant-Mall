@@ -1,0 +1,2 @@
+/* pages/detailsRefund/detailsRefund.wxss */
+@import '../orderDetails/orderDetails.wxss'

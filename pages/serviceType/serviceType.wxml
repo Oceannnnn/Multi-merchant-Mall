@@ -1,0 +1,11 @@
+<!--pages/serviceType/serviceType.wxml-->
+<view class='flex_cb p_20 bor_b bg_f' wx:for="{{list}}" wx:key="list" data-type="{{item.type}}" bindtap='toNext'>
+  <view class='flex_i'>
+    <i class="iconfont icon-{{item.icon}} c_e30 mr_20"></i>
+    <view>
+      <view class='f_34'>{{item.head}}</view>
+      <view class='f_28 mt_10 c_999'>{{item.text}}</view>
+    </view>
+  </view>
+  <image class="arrow" src="../../images/last_Dawn.png"></image>
+</view>

@@ -1,0 +1,101 @@
+<!--pages/chat/chat.wxml-->
+<view id="pages">
+  <view wx:if="{{id!=''}}" class='p_20 bg_f flex chatHeader bor_t'>
+    <image src='{{goods.pic}}' class='goodImg'></image>
+    <view class='goodLeft ml_20 f_28 flex_fs'>
+      <view>
+        <view class='sheng2'>{{goods.name}}</view>
+        <view class='c_ea5 mt_20'> ￥{{goods.price}}</view>
+      </view>
+      <view class='flex_cb'>
+        <view></view>
+        <view class='consultation f_28' bindtap='send' data-status="1">咨询该商品</view>
+      </view>
+    </view>
+  </view>
+  <view class="news {{id!=''?'top':''}}">
+    <view class="chat-notice" bindtap='chatHistory' wx:if="{{newslist!=''}}">点击查看聊天记录</view>
+    <view class="historycon f_30">
+      <scroll-view scroll-y="true" class="history" scroll-top="{{scrollTop}}">
+        <block wx:for="{{newslist}}" wx:key>
+          <!--自己的消息 -->
+          <view class="chat-news" wx:if="{{item.fromid == fromid}}">
+            <view style="padding-right: 20rpx;" class='flex_i myNews mb_20'>
+              <view class='flex_i'>
+                <view class="c_999 f_28 mr_20">{{ item.time }}</view>
+                <text class="name">{{from_name}}</text>
+              </view>
+              <image class='new_img' src="{{from_head}}"></image>
+            </view>
+            <view class='flex chatRight'>
+              <block wx:if="{{item.chat_type=='1'}}">
+                <view class='new_txt'>{{item.data}}</view>
+              </block>
+              <block wx:if="{{item.chat_type=='2'}}">
+                <image class="selectImg" src="{{item.data}}" data-src="{{item.data}}" lazy-load="true" bindtap="previewImg" mode="widthFix"></image>
+              </block>
+              <block wx:if="{{item.chat_type=='3'}}">
+                <view class='width mr_20 flex' bindtap='Details' data-id="{{item.data}}">
+                  <image src='{{item.pic}}' class='contentImg mr_20'></image>
+                  <view class='f_28 contenRight'>
+                    <view class='sheng'>
+                      {{item.goods_name}}
+                    </view>
+                    <view class='c_ea5'> ￥{{item.price}}</view>
+                  </view>
+                </view>
+              </block>
+            </view>
+          </view>
+          <!-- 别人的消息 -->
+          <view class="chat-news" wx:else="{{item.toid == toid}}">
+            <view style="text-align: left;padding-left: 20rpx;" class='flex_i mb_20'>
+              <image class='new_img' src="{{to_head}}"></image>
+              <view class='flex_i'>
+                <text class="name">{{to_name}}</text>
+                <view class="c_999 f_28 ml_20">{{ item.time }}</view>
+              </view>
+            </view>
+            <view class='you_left'>
+              <block wx:if="{{item.chat_type=='1'}}">
+                <view class='new_txt on'>{{item.data}}</view>
+              </block>
+              <block wx:if="{{item.chat_type=='2'}}">
+                <image class="selectImg" src="{{item.data}}" data-src="{{item.data}}" lazy-load="true" bindtap="previewImg" mode="widthFix"></image>
+              </block>
+              <block wx:if="{{item.chat_type=='3'}}">
+                <view class='width' bindtap='Details' data-id="{{item.data}}">
+                  <view class='content flex'>
+                    <image src='{{item.pic}}' class='contentImg mr_20'></image>
+                    <view class='f_28 contenRight'>
+                      <view class='sheng'>
+                        {{item.goods_name}}
+                      </view>
+                      <view class='c_ea5'> ￥{{item.price}}</view>
+                    </view>
+                  </view>
+                </view>
+              </block>
+            </view>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+  </view>
+  <view id="flag"></view>
+  <!-- 聊天输入 -->
+  <view class="message">
+    <form bindreset="cleanInput" class="sendMessage">
+      <input type="text" placeholder="请输入聊天内容.." value="{{massage}}" bindinput='bindChange' bindfocus='bindfocus'></input>
+      <view class="add" bindtap='increase'>
+      <view class='flex_faj con'>
+        <i class="iconfont icon-jiahao"></i>
+      </view>
+      </view>
+      <button class='b_e83 c_f' bindtap='send' formType="reset" size="small" button-hover="blue" data-status='0'>发送</button>
+    </form>
+    <view class='increased {{aniStyle?"slideup":"slidedown"}}' wx:if="{{increase}}">
+      <view class="image" bindtap='chooseImage'>相册 </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,56 @@
+/* pages/search/search.wxss */
+@import "../../font/iconfont.wxss";
+@import "../index/index.wxss";
+.s_header{
+  height: 100rpx;
+}
+.i_search input{
+  width:100%;
+}
+.s_search {
+  width:20%;
+  text-align:center;
+  padding:10rpx 0;
+}
+.i_search{
+  margin: 0 20rpx;
+  width: 100%;
+  border: 1px solid #333;
+  border-radius: 10rpx;
+  padding: 10rpx;
+  position: relative;
+}
+.nav-name{
+  border-bottom:0;
+  padding:24rpx 0;
+}
+.nav-name text{
+  padding: 20rpx 0;
+}
+.nav-hover{
+  color: #333;
+  border-bottom:2px solid #F54315;
+}
+.searchHistory{
+  padding: 15rpx 40rpx;
+  border-radius: 10rpx;
+  background: #DCDCDC;
+  margin: 20rpx 20rpx 0 0;
+}
+.searchLogo{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+}
+.toStore{
+  width: 100rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border: 1px solid #F54315;
+  color: #F54315;
+  border-radius: 20rpx;
+  text-align: center;
+}
+.zanwu {
+  margin-top: 180rpx;
+}

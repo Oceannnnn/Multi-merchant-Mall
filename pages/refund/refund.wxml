@@ -1,0 +1,79 @@
+<!--pages/refund/refund.wxml-->
+<view class='refund'>
+  <view class="choose_p flex_i pr bor_bom" wx:if="{{type!=0}}">
+    <view class="items_left">
+      <image src="{{detail.pic}}" />
+    </view>
+    <view class="items_right ml_20">
+      <view class='sheng2 f_32'>{{detail.name}}</view>
+      <view class="mt_10 c_999 f_28 sheng">{{detail.key_name}}</view>
+    </view>
+  </view>
+  <view class='p_20 flex_cb f_32 bor_bom' wx:if="{{type==1}}">
+    类型
+    <view>仅退款</view>
+  </view>
+  <view class='p_20 flex_cb f_32 bor_bom' wx:if="{{type==2}}">
+    货物状况
+    <view class='flex_i'>
+      <picker bindchange="bindGoodsState" value="{{goodsIndex}}" range-key="{{'text'}}" range="{{goodsState}}">
+        <view class="picker">
+          <text wx:if="{{goodsIndex==-1}}">请选择</text> {{goodsState[goodsIndex].text}}
+        </view>
+      </picker>
+      <image class="arrow ml_20" src="../../images/last_Dawn.png"></image>
+    </view>
+  </view>
+  <view class='p_20 flex_cb f_32 bor_bom'>
+    原因选择
+    <view class='flex_i'>
+      <view wx:if="{{type==2&&goodsIndex==-1}}" bindtap='bindChange'>请选择</view>
+      <picker wx:else bindchange="bindReasonsChange" value="{{reasonsIndex}}" range-key="{{'reason'}}" range="{{reasonsArray}}">
+        <view class="picker">
+          <text wx:if="{{reasonsIndex==-1}}">请选择</text> {{reasonsArray[reasonsIndex].reason}}
+        </view>
+      </picker>
+      <image class="arrow ml_20" src="../../images/last_Dawn.png"></image>
+    </view>
+  </view>
+  <view class='bor_bom p_20' wx:if="{{type!=0}}">
+    <view class='flex_cb f_32'>
+      退款金额
+      <view class='c_ea5'>￥{{detail.subtotal}}</view>
+    </view>
+    <view class='f_30 c_999 mt_20'>(最多￥{{detail.subtotal}}，含发货邮费￥{{detail.postage}})</view>
+  </view>
+  <view class='bor_bom'>
+    <view class='f_32 bor_b p_20'>
+      <text wx:if="{{type!=0}}">退款说明：</text>
+      <text wx:else>投诉说明：</text>
+    </view>
+    <textarea placeholder='请描述具体情况（选填)' class='f_32 textarea p_20' maxlength="150" bindinput='bindTextarea'></textarea>
+  </view>
+  <view class='p_20'>
+    <view class='f_32'>
+      上传凭证
+    </view>
+    <view class='flex_i mt_20'>
+      <block wx:key="imgbox" wx:for="{{imgbox}}" >
+        <view class='pr'>
+          <view class='upload pr'>
+            <image class='img' src='{{item.image}}'></image>
+            <view class='img-de pr'>
+              <form report-submit='true' class='formBtn' bindsubmit='delImage' data-deindex='{{index}}'>
+                <button class='formBtn' form-type='submit'></button>
+              </form>
+              <image class='img' src='../../images/cha.png'></image>
+            </view>
+          </view>
+        </view>
+      </block>
+      <view class='f_24 c_999 upload flex_faj c_999' bindtap='upload' wx:if="{{imgbox.length<3}}">
+        <i class="iconfont icon-paizhao-kong c_999"></i>
+        <view>上传凭证</view>
+        <view>（最多3张）</view>
+      </view>
+    </view>
+  </view>
+</view>
+<button class='s_foot disHeader f_32' bindtap='bindtap'>提交</button>

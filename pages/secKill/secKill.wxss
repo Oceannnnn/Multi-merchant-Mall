@@ -1,0 +1,27 @@
+/* pages/secKill/secKill.wxss */
+@import "../allorder/allorder.wxss";
+.list_img{
+  width: 220rpx;
+  height: 220rpx;
+}
+.list_right{
+  width: 470rpx;
+}
+.new_money{
+  font-size: 36rpx;
+}
+.list_fotter{
+  background: #E93D3B;
+  border-radius: 10rpx;
+  padding: 15rpx 0;
+  width: 180rpx;
+  text-align: center;
+}
+.body-scroll{
+  margin-top: 170rpx;
+}
+.secKill_dao text{
+  padding: 5rpx;
+  border: 1px solid #dadada;
+  margin-right: 10rpx;
+}

@@ -1,0 +1,73 @@
+<!--pages/store/store.wxml-->
+<view class='storeHeader pr bor_b'>
+  <image src='{{info.store_banner}}' class='storeHeaderImage'></image>
+  <view class='storeHeaderFooter'>
+    <view class='p_20 flex_cb header_store'>
+      <view class='flex_i'>
+        <image src='{{info.store_logo}}' class='header_img'></image>
+        <view class='f_34 ml_20 c_f'>{{info.store_name}}</view>
+      </view>
+      <view class="collection f_28 flex_i {{collect == 1?'active':''}} c_f" bindtap='collageSore' data-collectstore="{{collect}}" data-id='{{id}}'>
+        <i class="iconfont icon-shoucang mr_10"></i>
+        <text wx:if="{{collect!=1}}">收藏</text><text wx:else>已收藏</text>
+      </view>
+    </view>
+    <view class='flex_i f_28 storeBody c_f'>
+      <view class='flex_ja storeitem'>
+        <view class='f_32 mr_10'>商品</view>
+        {{info.goods_num}}
+      </view>
+      <view class='flex_ja storeitem ac'>
+        <view class='f_32 mr_10'>销量</view>
+        {{info.store_sales}}
+      </view>
+      <view class='flex_ja storeitem ac'>
+        <view class='f_32 mr_10'>收藏</view>
+        {{store_collect}}
+      </view>
+    </view>
+  </view>
+</view>
+<view class="tabTit flex_i">
+ <!-- {{index==0?'':'on'}} -->
+  <view class="flex1 {{item.tab==currentId?'active':''}} {{index==0?'':'on'}} {{index==2?'flex_ja':''}}" wx:for="{{tabTxt}}" wx:key="type" data-index="{{index}}" bindtap="filterTab" data-tab="{{item.tab}}" data-type='{{item.type}}' data-triangle="{{index==2?'triangle':''}}">
+    <text>{{item.name}}</text>
+    <view class='flex_af ml_10' wx:if="{{index==2}}">
+      <view class="triangle_border_up mb_10 {{triangle==0?'on':''}} triangle"></view>
+      <view class="triangle_border_down {{triangle==1?'on':''}} triangle"></view>
+    </view>
+  </view>
+</view>
+<view class="items-body flex_f" wx:if="{{itemsList!=''}}">
+  <view wx:for="{{itemsList}}" wx:key="{{itemName}}" wx:for-item="itemName" class='item_list p_20 bor_b pr'>
+    <form report-submit='true' class='formBtn' data-id='{{itemName.goods_id}}' data-type='0' bindsubmit='details'>
+      <button class='formBtn' form-type='submit'></button>
+    </form>
+    <view class="item-img mb_20">
+      <image class="lazy" src="{{itemName.original_img}}" />
+    </view>
+    <view class='sheng2 f_28 mb_20 contentText'>{{itemName.goods_name}}</view>
+    <view class='flex_i f_32'>
+      <view class="price">{{itemName.dis_price}}</view>
+      <view class="text_l c_999 ml_20 f_28" wx:if="{{itemName.is_discount==1}}">{{itemName.shop_price}}</view>
+    </view>
+  </view>
+</view>
+<view class='flex_i f_28 storeFooter bor_t'> 
+  <navigator class='flex_faj storeitem' url='../storeClassify/storeClassify?id={{id}}'>
+    <i class="iconfont icon-fenlei"></i>
+    <view>分类</view>
+  </navigator>
+  <view class='flex_faj storeitem ac' data-toid="{{info.toid}}" data-fromid="{{info.fromid}}"  bindtap='contentBtn'>
+    <i class="iconfont icon-duihua"></i>
+    <view>联系卖家</view>
+  </view>
+  <navigator class='flex_faj storeitem ac' url='../consumer/consumer?id={{id}}'>
+    <i class="iconfont icon-huodong"></i>
+    <view>活动</view>
+  </navigator>
+  <navigator class='flex_faj storeitem ac' open-type='switchTab' url='../cart/cart'>
+    <i class="iconfont icon-gouwuche1"></i>
+    <view>购物车</view>
+  </navigator>
+</view>
